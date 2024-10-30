@@ -1,9 +1,6 @@
-
 let cell = document.querySelectorAll(".cell")
 let msg = document.querySelector("#resultado")
 let btnZerar = document.querySelector("#zerar")
-
-// console.log(cell)
 
 let player = 'X'
 let countClick = 0
@@ -19,11 +16,14 @@ const playGame= (evt)=>{
             msg.innerHTML = `Jogador ${player} é o ganhador.`
             return
         }
+
+
         player = (player === 'X') ? 'O' : 'X'
 
         // verifica ganhador!!!!!!
         if (countClick == 9) {
             msg.innerHTML = "deu Velha!!!"
+
         }
     }
 }
@@ -52,7 +52,7 @@ const verificaGanhador = () => {
 }
 
 
-cell.forEach( c =>{
+cell.forEach(c => {
     c.addEventListener("click", playGame)
 })
 

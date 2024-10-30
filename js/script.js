@@ -15,15 +15,24 @@ const playGame= (evt)=>{
         target.innerHTML = player
         player = (player == 'X')?'0':'X'
         countClick++
-    }
-    // verifica ganhador!!!!!!
-    if (countClick == 9){
-        msg.innerHTML = "deu Velha!!!"
-       // alert("deu Velha!!!")
-        // countClick = 0
-        // zeraTabuleiro()
+
+        if (verificaGanhador()) {
+            msg.innerHTML = `Jogador ${player} é o ganhador.`
+            return
+        }
+
+        player = (player === 'X') ? 'O' : 'X'
+
+        // verifica ganhador!!!!!!
+        if (countClick == 9){
+            msg.innerHTML = "deu Velha!!!"
+        }
     }
 }
+
+
+
+
 
 cell.forEach( c =>{
     c.addEventListener("click", playGame)
@@ -38,4 +47,3 @@ const zeraTabuleiro = ()=>{
 }
 
 btnZerar.addEventListener("click",zeraTabuleiro)
-
